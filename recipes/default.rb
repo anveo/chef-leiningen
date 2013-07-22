@@ -25,7 +25,7 @@ remote_file "/usr/local/bin/lein" do
   owner node[:leiningen][:user]
   group node[:leiningen][:group]
   mode 0755
-  notifies :create, "ruby_block[lein-system-wide]", :immediately
+  #notifies :create, "ruby_block[lein-system-wide]", :immediately
   not_if "grep -qx 'export LEIN_VERSION=\"#{node[:leiningen][:version]}\"' /usr/local/bin/lein"
 end
 
